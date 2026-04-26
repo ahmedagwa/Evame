@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EvaMe</title>
+<link rel="icon" type="image/x-icon" href="Evame.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #E8DDC8;
+  color: #5C3B2E;
+}
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Layout */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 0;
+}
+
+.hero-text {
+  max-width: 550px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  line-height: 1.3;
+}
+
+.hero p {
+  color: #7A6A58;
+  margin-top: 20px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: #F28C48;
+  color: white;
+}
+
+.btn-secondary {
+  border: 1px solid #F28C48;
+  color: #F28C48;
+  margin-left: 10px;
+}
+
+/* Section */
+.section {
+  padding: 80px 0;
+}
+
+.section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.section p {
+  color: #7A6A58;
+}
+
+.image-box img {
+  max-width: 450px;
+  border-radius: 12px;
+}
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+.quick-start, .results {
+  padding: 80px 0;
+}
+
+h2 {
+  font-size: 36px;
+  text-align: center;
+  color: #5C3B2E;
+}
+
+.subtitle {
+  text-align: center;
+  color: #7A6A58;
+  max-width: 800px;
+  margin: 15px auto 50px;
+}
+
+/* Steps */
+.steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.step {
+  text-align: center;
+  max-width: 300px;
+}
+
+.step img {
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+.step h3 {
+  color: #5C3B2E;
+}
+
+.step p {
+  color: #7A6A58;
+}
+
+/* Buttons */
+.buttons {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.btn {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.primary {
+  background: #F28C48;
+  color: white;
+}
+
+.secondary {
+  background: transparent;
+  border: 1px solid #F28C48;
+  color: #F28C48;
+  margin-left: 10px;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.card {
+  flex: 1;
+  background: #F5EFE6;
+  border: 1px solid #D6C7B0;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.card h4 {
+  margin-bottom: 10px;
+}
+
+.status {
+  color: #F28C48;
+}
+.metrics {
+  padding: 80px 0;
+}
+
+.metrics h2 {
+  font-size: 36px;
+  margin-bottom: 50px;
+  color: #5C3B2E;
+}
+
+/* Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+/* Metric card */
+.metric {
+  max-width: 250px;
+}
+
+.metric img {
+  width: 70px;
+  margin-bottom: 15px;
+}
+
+.metric h3 {
+  margin-bottom: 10px;
+  color: #5C3B2E;
+}
+
+.metric p {
+  color: #7A6A58;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.performance {
+  padding: 80px 0;
+}
+
+.performance h2 {
+  font-size: 36px;
+  color: #5C3B2E;
+}
+
+.performance .subtitle {
+  color: #7A6A58;
+  margin-bottom: 40px;
+}
+
+.chart-box {
+  background: #F5EFE6;
+  border: 1px solid #D6C7B0;
+  border-radius: 12px;
+  padding: 30px;
+}
+.certification {
+  padding: 80px 0;
+}
+
+.certification h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #5C3B2E;
+}
+
+/* Layout */
+.cert-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+/* LEFT */
+.cert-left {
+  text-align: center;
+}
+
+.cert-left img {
+  width: 180px;
+  margin-bottom: 20px;
+}
+
+.cert-left h3 {
+  color: #5C3B2E;
+}
+
+.issued {
+  color: #7A6A58;
+  font-size: 14px;
+}
+
+/* RIGHT */
+.cert-right {
+  max-width: 500px;
+}
+
+.cert-right .desc {
+  color: #7A6A58;
+  margin-bottom: 20px;
+}
+
+.cert-right ul {
+  margin-bottom: 25px;
+  color: #5C3B2E;
+}
+
+.cert-right li {
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.primary {
+  background: #F28C48;
+  color: white;
+}
+
+.secondary {
+  background: transparent;
+  border: 1px solid #F28C48;
+  color: #F28C48;
+}
+/* Process */
+.process {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.process h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #5C3B2E;
+}
+
+.process-steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.step {
+  flex: 1;
+}
+
+/* Circles */
+.circle {
+  width: 120px;
+  height: 120px;
+  border: 6px solid #F28C48;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+/* Description */
+.process-desc {
+  color: #7A6A58;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Next Steps Section */
+.next-steps {
+  background: url('https://cdn.gamma.app/bg.png') center/cover no-repeat;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(232, 221, 200, 0.9);
+  padding: 80px 0;
+}
+
+.next-steps h2 {
+  font-size: 32px;
+  color: #5C3B2E;
+}
+
+.next-steps .subtitle {
+  color: #7A6A58;
+  margin-bottom: 40px;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.card {
+  flex: 1;
+  background: #F5EFE6;
+  border: 1px solid #D6C7B0;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.primary {
+  background: #F28C48;
+  color: white;
+}
+
+.secondary {
+  border: 1px solid #F28C48;
+  color: #F28C48;
+  text-decoration: none;
+  background: transparent;
+}
+/* Process */
+.process {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.process h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #5C3B2E;
+}
+
+.process-steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.process img{
+
+  max-width: 30px;
+}
+
+
+.step {
+  flex: 1;
+}
+
+/* Circles */
+.circle {
+  width: 120px;
+  height: 120px;
+  border: 6px solid #F28C48;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+/* Description */
+.process-desc {
+  color: #7A6A58;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Next Steps Section */
+.next-steps {
+  background: url('bg.png') center/cover no-repeat;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(232, 221, 200, 0.9);
+  padding: 80px 0;
+}
+
+.next-steps h2 {
+  font-size: 32px;
+  color: #5C3B2E;
+}
+
+.next-steps .subtitle {
+  color: #7A6A58;
+  margin-bottom: 40px;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.card {
+  flex: 1;
+  background: #F5EFE6;
+  border: 1px solid #D6C7B0;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.primary {
+  background: #F28C48;
+  color: white;
+}
+
+.secondary {
+  border: 1px solid #F28C48;
+  color: #F28C48;
+  text-decoration: none;
+  background: transparent;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 20px;
+  color: #5C3B2E;
+}
+
+.navbar nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #7A6A58;
+  font-weight: 500;
+}
+
+.navbar nav a:hover {
+  color: #F28C48;
+}
+
+/* Button */
+.nav-btn {
+  background: #F28C48;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.footer {
+  background: #F5EFE6;
+  border-top: 1px solid #D6C7B0;
+  padding: 40px 0;
+  margin-top: 60px;
+}
+
+.footer-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.footer-left h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+}
+
+.footer-left p {
+  color: #7A6A58;
+}
+
+/* Links */
+.footer-links {
+  margin: 20px 0;
+}
+
+.footer-links a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #5C3B2E;
+}
+
+.footer-links a:hover {
+  color: #F28C48;
+}
+
+/* Bottom */
+.footer-bottom {
+  margin-top: 20px;
+  color: #7A6A58;
+  font-size: 14px;
+}
+img {
+  max-width: 100%;
+}
+
+.metric img,
+.step img,
+.cert-left img{
+  transform: scale(2.0);
+}
+/* Initial state */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease;
+}
+
+/* When visible */
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+</head>
+
+<body>
+<header class="navbar">
+
+  <div class="logo">EvaMe</div>
+
+  <nav>
+    <a href="#start">Start</a>
+    <a href="#metrics">Metrics</a>
+    <a href="#process">Process</a>
+    <a href="price.html">Pricing</a>
+  </nav>
+
+  <a href="signup.html" class="nav-btn">Start Evaluation</a>
+
+</header>
+<div class="container">
+
+<!-- HERO -->
+<section class="hero fade">
+
+  <div class="hero-text">
+    <h1>Evaluate, Score, and Certify Your AI Models</h1>
+
+    <p>
+      platform that turns raw model outputs into standardized evaluation reports 
+      and certification scores fast, transparent, and repeatable for product teams, 
+      founders, and model validators.
+    </p>
+
+    <a href="#" class="btn btn-primary">Start Evaluation</a>
+    <a href="pricing.html" class="btn btn-secondary">Learn more</a>
+  </div>
+
+  <div class="image-box">
+    <img src="Evame.png">
+  </div>
+
+</section>
+
+<!-- SECTION -->
+<section class="section fade">
+
+  <h2>Why standardized model evaluation matters</h2>
+
+  <p>
+    Teams ship models without a reliable, comparable score. That creates risk of unpredictable 
+    accuracy, hidden bias, and security gaps. Our platform enforces a repeatable evaluation 
+    pipeline and produces a clear certification you can trust.
+  </p>
+
+  <ul>
+    <li> One consistent scoring system across models</li>
+    <li> Actionable insights for engineering and risk teams</li>
+    <li> Certification badges to communicate reliability</li>
+  </ul>
+
+</section>
+<section class="quick-start container fade">
+
+  <h2>Input & Evaluation — Quick Start</h2>
+  <p class="subtitle">
+    Submit your model metadata or select a demo model to simulate a full evaluation run,
+    simulates realistic metrics so product teams can preview results and iterate.
+  </p>
+
+  <div class="steps">
+
+    <div class="step">
+      <img src="step1.png" alt="">
+      <h3>1 — Model Name</h3>
+      <p>Enter the model identifier used within your stack — e.g., "Vision-Classifier-v2".</p>
+    </div>
+
+    <div class="step">
+      <img src="step2.png" alt="">
+      <h3>2 — Demo Model</h3>
+      <p>Choose a demo model to run a simulated evaluation (useful for trials and demos).</p>
+    </div>
+
+    <div class="step">
+      <img src="step3.png" alt="">
+      <h3>3 — Run Evaluation</h3>
+      <p>Click “Run Evaluation” to generate a standardized report. No backend required.</p>
+    </div>
+
+  </div>
+
+  <div class="buttons">
+    <button class="btn primary">Run Evaluation (simulate)</button>
+    <button class="btn secondary">Load Demo Model</button>
+  </div>
+
+</section>
+
+
+<section class="results container fade">
+
+  <h2>Results Dashboard — Overview</h2>
+  <p class="subtitle">
+    The dashboard summarizes model health at-a-glance: an overall score, certification status,
+    visual performance, granular metrics, and concise insights for next steps.
+  </p>
+
+  <div class="cards">
+
+    <div class="card">
+      <h4>Model</h4>
+      <p>Vision-Classifier-v2</p>
+    </div>
+
+    <div class="card">
+      <h4>Overall Score</h4>
+      <p><strong>78 / 100</strong></p>
+    </div>
+
+    <div class="card">
+      <h4>Status</h4>
+      <p class="status">AI Certified — Level B</p>
+    </div>
+
+  </div>
+
+</section>
+<section class="metrics container fade">
+
+  <h2>Metrics Breakdown</h2>
+
+  <div class="metrics-grid">
+
+    <div class="metric">
+      <img src="accuracy.png" alt="">
+      <h3>Accuracy</h3>
+      <p>
+        Strong predictive performance on validation data. Recommendation:
+        add targeted edge-case tests to raise confidence in rare classes.
+      </p>
+    </div>
+
+    <div class="metric">
+      <img src="speed.png" alt="">
+      <h3>Speed</h3>
+      <p>
+        Medium latency under simulated load. Recommendation: optimize batching
+        and model quantization for production.
+      </p>
+    </div>
+
+    <div class="metric">
+      <img src="bias.png" alt="">
+      <h3>Bias / Fairness</h3>
+      <p>
+        Minor demographic bias detected in underrepresented groups.
+        Recommendation: augment training data and re-evaluate fairness metrics.
+      </p>
+    </div>
+
+    <div class="metric">
+      <img src="efficiency.png" alt="">
+      <h3>Efficiency</h3>
+      <p>
+        Memory and compute usage are efficient. Recommendation:
+        monitor inference cost as traffic scales.
+      </p>
+    </div>
+
+    <div class="metric">
+      <img src="security.png" alt="">
+      <h3>Security</h3>
+      <p>
+        Vulnerability surface moderate. Recommendation:
+        run adversarial tests and harden endpoints.
+      </p>
+    </div>
+
+    <div class="metric">
+      <img src="cert.png" alt="">
+      <h3>Certification</h3>
+      <p>
+        AI Certified — Meets baseline trust requirements with areas flagged for improvement.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+<section class="performance container fade">
+
+  <h2>Performance Visualization</h2>
+  <p class="subtitle">
+    Radar chart maps five core axes to show strengths and weaknesses visually.
+    This view helps product and engineering quickly identify trade-offs.
+  </p>
+
+  <div class="chart-box">
+    <canvas id="radarChart"></canvas>
+  </div>
+
+</section>
+<section class="certification container fade">
+
+  <h2>Certification Badge & Evidence</h2>
+
+  <div class="cert-grid">
+
+    <!-- LEFT (Badge) -->
+    <div class="cert-left">
+      <img src="cert-badge.png" alt="Certification Badge">
+
+      <h3>AI Certified — Level B</h3>
+      <p class="issued">Issued: 2026-04-25</p>
+    </div>
+
+    <!-- RIGHT (Details) -->
+    <div class="cert-right">
+
+      <p class="desc">
+        Certification is backed by a reproducible evaluation bundle including test datasets,
+        metric calculations, and a summary report. Level definitions:
+      </p>
+
+      <ul>
+        <li><strong>Level A</strong> — Excellent: ≥90 across core metrics</li>
+        <li><strong>Level B</strong> — Good: 70–89 with limited issues</li>
+        <li><strong>Level C</strong> — Needs work: &lt;70 or multiple concerns</li>
+      </ul>
+
+      <div class="buttons">
+        <button class="btn secondary">Download Report</button>
+        <button class="btn primary">Request Re-evaluation</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="process container fade">
+
+  <h2>Process Diagram — From Submission to Certification</h2>
+
+  <div class="process-steps">
+
+    <div class="step">
+      <div class="circle"><img src="upload.svg" ></img></div>
+      <h3>Submit Model</h3>
+    </div>
+
+    <div class="step">
+      <div class="circle"><img src="eval.svg" ></img></div>
+      <h3>Run Evaluation</h3>
+    </div>
+
+    <div class="step">
+      <div class="circle"><img src="insight.svg" ></img></div>
+      <h3>Generate Insights</h3>
+    </div>
+
+    <div class="step">
+      <div class="circle"><img src="cert.svg" ></img></div>
+      <h3>Issue Certificate</h3>
+    </div>
+
+  </div>
+
+  <p class="process-desc">
+    This clear process reduces ambiguity and creates an auditable trail: submission captures metadata,
+    evaluation runs deterministic checks, insights guide remediation, and certification communicates trust
+    to customers and compliance teams.
+  </p>
+
+</section>
+
+
+<section class="next-steps fade">
+
+  <div class="overlay">
+
+    <div class="container">
+
+      <h2>Next Steps</h2>
+      <p class="subtitle">
+        Ready to validate a model? Start with a demo evaluation or import your model metadata.
+        Our goal is to reduce uncertainty so you can ship confidently.
+      </p>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>Try the Demo</h3>
+          <p>Run a simulated evaluation and explore the dashboard.</p>
+        </div>
+
+        <div class="card">
+          <h3>Integrate & Automate</h3>
+          <p>Connect CI pipelines to run evaluations on each model release.</p>
+        </div>
+
+        <div class="card">
+          <h3>See Pricing</h3>
+          <p>Or request custom evaluation services, enterprise support.</p>
+        </div>
+
+      </div>
+
+      <div class="buttons">
+        <button class="btn primary">Start Demo</button>
+        <a href="price.html" class="btn secondary">See Pricing</a>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</div>
+<footer class="footer fade">
+
+  <div class="footer-container">
+
+    <div class="footer-left">
+      <h3>EvaMe</h3>
+      <p>Evaluate, Score, and Certify AI Models with confidence.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="price.html">Pricing</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 EvaMe. All rights reserved.
+    </div>
+
+  </div>
+
+</footer><script>
+const ctx = document.getElementById('radarChart');
+
+new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: ['Accuracy', 'Speed', 'Security', 'Fairness', 'Efficiency'],
+    datasets: [{
+      label: 'Score',
+      data: [85, 70, 65, 60, 80],
+      backgroundColor: 'rgba(242, 140, 72, 0.2)',
+      borderColor: '#F28C48',
+      borderWidth: 2,
+      pointBackgroundColor: '#F28C48'
+    }]
+  },
+  options: {
+    scales: {
+      r: {
+        angleLines: {
+          color: '#D6C7B0'
+        },
+        grid: {
+          color: '#D6C7B0'
+        },
+        pointLabels: {
+          color: '#5C3B2E',
+          font: {
+            size: 14
+          }
+        },
+        ticks: {
+          color: '#7A6A58',
+          backdropColor: 'transparent'
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        display: false
+      }
+    }
+  }
+});
+
+const elements = document.querySelectorAll('.fade');
+
+function reveal() {
+  elements.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+
+    if (elementTop < windowHeight - 80) {
+      el.classList.add('show');
+    }
+  });
+}
+
+window.addEventListener('scroll', reveal);
+window.addEventListener('load', reveal);
+
+</script>
+</body>
+</html>
