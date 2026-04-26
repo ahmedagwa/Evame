@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EvaMe Pricing</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+
+.dark {
+  --bg: #0f172a;
+  --card: rgba(30,41,59,0.8);
+  --text: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s;
+    background: #E8DDC8;
+  color: #5C3B2E;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 0;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 22px;
+  color: #6366f1;
+}
+
+.toggle-mode {
+  cursor: pointer;
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.hero h1 {
+  font-size: 36px;
+}
+
+.hero p {
+  color: #64748b;
+}
+
+/* Billing toggle */
+.billing {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.billing button {
+  padding: 8px 16px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #e0e7ff;
+}
+
+.billing .active {
+  background: #6366f1;
+  color: white;
+}
+
+/* Pricing */
+.pricing {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.card {
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  background: var(--card);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: 0.3s;
+  background: #F5EFE6;
+  border: 1px solid #D6C7B0;
+  box-shadow: none;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+.highlight {
+  border: 2px solid #F28C48;
+  box-shadow: 0 0 25px rgba(99,102,241,0.4);
+}
+
+.price {
+  font-size: 38px;
+  font-weight: bold;
+}
+
+.price span {
+  font-size: 14px;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.card ul li {
+  margin: 10px 0;
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: #F28C48;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+  
+}
+
+.btn:hover {
+  opacity: 0.85;
+  background: #E07A3F;
+}
+
+/* Table */
+.table {
+  margin-top: 60px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 12px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 40px;
+}
+.hero p,
+.card ul li,
+footer {
+  color: #7A6A58;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!--<header>
+  <div class="logo">EvaMe</div>
+  <button class="toggle-mode" onclick="toggleMode()">🌙 Dark</button>
+</header>-->
+
+<section class="hero fade">
+  <h1>Flexible Pricing</h1>
+  <p>Scale your AI evaluation with confidence</p>
+</section>
+
+<div class="billing fade">
+  <button class="active" onclick="monthly()">Monthly</button>
+  <button onclick="yearly()">Yearly</button>
+</div>
+
+<section class="pricing fade">
+
+  <div class="card">
+    <h3>Developer</h3>
+    <div class="price" id="dev">$9<span>/mo</span></div>
+    <ul>
+      <li> 10 evaluations</li>
+      <li> Basic metrics</li>
+      <li> Reports</li>
+    </ul>
+    <button class="btn">Get Started</button>
+  </div>
+
+  <div class="card highlight">
+    <h3>Pro</h3>
+    <div class="price" id="pro">$29<span>/mo</span></div>
+    <ul>
+      <li> Everything in Developer and: </li>
+      <li> Unlimited evaluations</li>
+      <li> Advanced metrics</li>
+      <li> Insights</li>
+    </ul>
+    <button class="btn">Start Trial</button>
+  </div>
+
+  <div class="card">
+    <h3>Enterprise</h3>
+    <div class="price">Custom</div>
+    <ul>
+      <li> Full access</li>
+      <li> API</li>
+      <li> Dedicated support</li>
+    </ul>
+    <button class="btn">Contact</button>
+  </div>
+
+</section>
+
+<!-- Comparison Table -->
+<section class="table fade">
+  <h2 style="text-align:center;">Compare features across plans</h2>
+  <table>
+    <tr>
+      <th>Feature</th>
+      <th>Developer</th>
+      <th>Pro</th>
+      <th>Enterprise</th>
+    </tr>
+    <tr>
+      <td>Evaluations</td>
+      <td>10</td>
+      <td>Unlimited</td>
+      <td>Unlimited</td>
+    </tr>
+    <tr>
+      <td>Metrics</td>
+      <td>Basic</td>
+      <td>Advanced</td>
+      <td>Advanced</td>
+    </tr>
+    <tr>
+      <td>API Access</td>
+      <td>❌</td>
+      <td>❌</td>
+      <td>✔</td>
+    </tr>
+  </table>
+</section>
+
+<footer>
+  © 2026 EvaMe. All rights reserved.
+</footer>
+
+</div>
+
+<script>
+function monthly() {
+  dev.innerHTML = "$9<span>/mo</span>";
+  pro.innerHTML = "$29<span>/mo</span>";
+}
+
+function yearly() {
+  dev.innerHTML = "$90<span>/yr</span>";
+  pro.innerHTML = "$290<span>/yr</span>";
+}
+
+function toggleMode() {
+  document.body.classList.toggle("dark");
+}
+
+/* Scroll animation */
+const elements = document.querySelectorAll(".fade");
+window.addEventListener("scroll", () => {
+  elements.forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 50) {
+      el.classList.add("show");
+    }
+  });
+});
+</script>
+
+</body>
+</html>
