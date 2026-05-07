@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EvaMe Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#E8DDC8;
+  color:#5C3B2E;
+}
+
+/* NAVBAR */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 60px;
+  border-bottom:1px solid #D6C7B0;
+  background:#F5EFE6;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+}
+
+.nav-links a{
+  margin:0 15px;
+  text-decoration:none;
+  color:#7A6A58;
+  font-weight:500;
+}
+
+.nav-links a:hover{
+  color:#F28C48;
+}
+
+.nav-btn{
+  background:#F28C48;
+  color:white;
+  padding:10px 18px;
+  border-radius:8px;
+  text-decoration:none;
+}
+
+/* MAIN */
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+  padding:50px 0;
+}
+
+/* HEADER */
+.welcome{
+  margin-bottom:40px;
+}
+
+.welcome h1{
+  font-family:'Playfair Display',serif;
+  font-size:42px;
+}
+
+.welcome p{
+  color:#7A6A58;
+  margin-top:10px;
+}
+
+/* SUMMARY CARDS */
+.summary-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  margin-bottom:50px;
+}
+
+.summary-card{
+  background:#F5EFE6;
+  border:1px solid #D6C7B0;
+  border-radius:14px;
+  padding:25px;
+  transition:0.3s;
+}
+
+.summary-card:hover{
+  transform:translateY(-5px);
+}
+
+.summary-card .icon{
+  font-size:40px;
+  margin-bottom:15px;
+}
+
+.summary-card h3{
+  font-size:16px;
+  color:#7A6A58;
+}
+
+.summary-card h2{
+  margin-top:8px;
+}
+
+/* CHART */
+.chart-section{
+  padding:80px 0;
+  text-align:center;
+}
+
+.chart-section h2{
+  font-family:'Playfair Display',serif;
+  font-size:42px;
+  color:#5C3B2E;
+  margin-bottom:20px;
+}
+
+.chart-subtitle{
+  color:#7A6A58;
+  max-width:700px;
+  margin:0 auto 40px;
+  line-height:1.6;
+}
+
+.chart-container{
+  background:#F5EFE6;
+  border:1px solid #E0D3BF;
+  border-radius:12px;
+  padding:30px;
+  max-width:900px;
+  margin:auto;
+}
+
+/* METRICS */
+.metrics-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+  margin-bottom:50px;
+}
+
+.metric-card{
+  background:#F5EFE6;
+  border:1px solid #D6C7B0;
+  border-radius:14px;
+  padding:25px;
+  display:flex;
+  gap:20px;
+  transition:0.3s;
+}
+
+.metric-card:hover{
+  transform:translateY(-5px);
+}
+
+.metric-icon{
+  font-size:45px;
+}
+
+.metric-text h3{
+  margin-bottom:8px;
+}
+
+.metric-text p{
+  color:#7A6A58;
+}
+
+/* INSIGHTS */
+.insights{
+  background:#F5EFE6;
+  border:1px solid #D6C7B0;
+  border-radius:14px;
+  padding:30px;
+  margin-bottom:50px;
+}
+
+.insights ul{
+  margin-top:20px;
+  padding-left:20px;
+}
+
+.insights li{
+  margin-bottom:12px;
+  color:#7A6A58;
+}
+
+/* CERTIFICATION */
+.certification{
+  background:#F5EFE6;
+  border:1px solid #D6C7B0;
+  border-radius:14px;
+  padding:40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:50px;
+}
+
+.cert-left{
+  text-align:center;
+}
+
+.badge{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  border:8px solid #F28C48;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:60px;
+  margin-bottom:20px;
+  background:#fff;
+}
+
+.cert-right{
+  max-width:500px;
+}
+
+.cert-right p{
+  color:#7A6A58;
+  margin:20px 0;
+}
+
+.btn{
+  background:#F28C48;
+  color:white;
+  padding:12px 18px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* TABLE */
+.table-section{
+  margin-bottom:50px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:#F5EFE6;
+  border-radius:14px;
+  overflow:hidden;
+}
+
+th,td{
+  padding:18px;
+  text-align:left;
+  border-bottom:1px solid #D6C7B0;
+}
+
+th{
+  background:#EFE5D5;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  padding:40px;
+  color:#7A6A58;
+}
+
+/* FADE ANIMATION */
+.fade{
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 0.8s ease;
+}
+
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">EvaMe</div>
+
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="#">Reports</a>
+    <a href="price.html">Pricing</a>
+    <a href="#">Settings</a>
+  </nav>
+
+  <a href="#" class="nav-btn">New Evaluation</a>
+</header>
+
+<div class="container">
+
+<!-- HEADER -->
+<section class="welcome fade">
+  <h1>Welcome back, Ahmed</h1>
+  <p>Your latest AI evaluation reports and certification insights.</p>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary-grid fade">
+
+  <div class="summary-card">
+    <div class="icon">📊</div>
+    <h3>Overall Score</h3>
+    <h2>78 / 100</h2>
+  </div>
+
+  <div class="summary-card">
+    <div class="icon">🏅</div>
+    <h3>Certification</h3>
+    <h2>Level B</h2>
+  </div>
+
+  <div class="summary-card">
+    <div class="icon">🔒</div>
+    <h3>Security Score</h3>
+    <h2>Medium</h2>
+  </div>
+
+  <div class="summary-card">
+    <div class="icon">⚖️</div>
+    <h3>Fairness</h3>
+    <h2>Good</h2>
+  </div>
+
+</section>
+
+<!-- CHART -->
+<section class="chart-section fade">
+
+  <h2>Performance Radar Chart</h2>
+
+  <p class="chart-subtitle">
+    Visual breakdown of model performance across five core dimensions.
+    Orange highlights show your model's strengths and areas for improvement.
+  </p>
+
+  <div class="chart-container">
+    <canvas id="performanceChart"></canvas>
+  </div>
+
+</section>
+
+<!-- METRICS -->
+<section class="metrics-grid fade">
+
+  <div class="metric-card">
+    <div class="metric-icon">🎯</div>
+    <div class="metric-text">
+      <h3>Accuracy</h3>
+      <p>Strong predictive performance across validation datasets.</p>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div class="metric-icon">⚡</div>
+    <div class="metric-text">
+      <h3>Speed</h3>
+      <p>Moderate latency under high concurrent load.</p>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div class="metric-icon">🛡️</div>
+    <div class="metric-text">
+      <h3>Security</h3>
+      <p>Security hardening recommended before deployment.</p>
+    </div>
+  </div>
+
+  <div class="metric-card">
+    <div class="metric-icon">📈</div>
+    <div class="metric-text">
+      <h3>Efficiency</h3>
+      <p>Compute and memory usage are within optimal range.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- INSIGHTS -->
+<section class="insights fade">
+  <h2>Insights & Recommendations</h2>
+
+  <ul>
+    <li>Model performs strongly under standard workloads.</li>
+    <li>Minor bias detected in edge-case demographic samples.</li>
+    <li>Security hardening recommended before production deployment.</li>
+  </ul>
+</section>
+
+<!-- CERTIFICATION -->
+<section class="certification fade">
+
+  <div class="cert-left">
+    <div class="badge">🏅</div>
+    <h2>AI Certified — Level B</h2>
+  </div>
+
+  <div class="cert-right">
+    <h2>Certification Details</h2>
+
+    <p>
+      This model passed the baseline evaluation requirements
+      for reliability, fairness, and operational stability.
+    </p>
+
+    <button class="btn">Download Report</button>
+  </div>
+
+</section>
+
+<!-- TABLE -->
+<section class="table-section fade">
+
+  <h2 style="margin-bottom:20px;">Recent Evaluations</h2>
+
+  <table>
+    <tr>
+      <th>Model Name</th>
+      <th>Date</th>
+      <th>Score</th>
+      <th>Status</th>
+    </tr>
+
+    <tr>
+      <td>Vision-Classifier-v2</td>
+      <td>2026-04-25</td>
+      <td>78</td>
+      <td>Certified</td>
+    </tr>
+
+    <tr>
+      <td>ChatAssist-Pro</td>
+      <td>2026-04-21</td>
+      <td>84</td>
+      <td>Certified</td>
+    </tr>
+
+    <tr>
+      <td>SpeechAI-X</td>
+      <td>2026-04-18</td>
+      <td>69</td>
+      <td>Review Needed</td>
+    </tr>
+
+    <tr>
+      <td>FraudShield-AI</td>
+      <td>2026-04-14</td>
+      <td>91</td>
+      <td>Level A</td>
+    </tr>
+
+  </table>
+
+</section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <h3>EvaMe</h3>
+  <p>Evaluate. Score. Certify.</p>
+  <p>© 2026 EvaMe. All rights reserved.</p>
+</footer>
+
+<!-- CHART -->
+<script>
+
+
+
+const ctx = document.getElementById('performanceChart');
+
+new Chart(ctx, {
+  type: 'line',
+
+  data: {
+    labels: ['Accuracy', 'Speed', 'Security', 'Fairness', 'Efficiency'],
+
+    datasets: [{
+      label: 'Score',
+
+      data: [85, 70, 65, 60, 80],
+
+      borderColor: '#9C4F19',
+
+      backgroundColor: 'rgba(156, 79, 25, 0.08)',
+
+      fill: true,
+
+      tension: 0.3,
+
+      pointRadius: 0,
+
+      borderWidth: 3
+    }]
+  },
+
+  options: {
+
+    responsive:true,
+
+    plugins:{
+      legend:{
+        display:false
+      },
+
+      tooltip:{
+        backgroundColor:'#2B2B2B',
+        titleColor:'#fff',
+        bodyColor:'#fff',
+        borderColor:'#444',
+        borderWidth:1,
+        padding:12
+      }
+    },
+
+    scales:{
+
+      x:{
+        grid:{
+          color:'#E6D8C6'
+        },
+
+        ticks:{
+          color:'#7A6A58'
+        }
+      },
+
+      y:{
+        min:0,
+        max:100,
+
+        grid:{
+          color:'#E6D8C6'
+        },
+
+        ticks:{
+          color:'#7A6A58'
+        }
+      }
+    }
+  }
+});
+
+
+/* Fade animation */
+const elements = document.querySelectorAll('.fade');
+
+function reveal() {
+  elements.forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+      el.classList.add('show');
+    }
+  });
+}
+
+window.addEventListener('scroll', reveal);
+window.addEventListener('load', reveal);
+</script>
+
+</body>
+</html>
